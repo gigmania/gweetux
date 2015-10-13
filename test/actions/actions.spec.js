@@ -1,5 +1,4 @@
 import expect from 'expect';
-import * as types from '../../actions/index';
 import * as actions from '../../actions/index';
 
 describe('gweetux actions', () => {

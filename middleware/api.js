@@ -20,7 +20,7 @@ const API_ROOT = 'https://api.github.com/';
 
 // Fetches an API response and normalizes the result JSON according to schema.
 // This makes every API response have the same shape, regardless of how nested it was.
-function callApi(endpoint, schema) {
+export function callApi(endpoint, schema) {
   const fullUrl = (endpoint.indexOf(API_ROOT) === -1) ? API_ROOT + endpoint : endpoint;
 
   return fetch(fullUrl)
@@ -33,7 +33,8 @@ function callApi(endpoint, schema) {
       const camelizedJson = camelizeKeys(json);
       const nextPageUrl = getNextPageUrl(response) || undefined;
 
-      var normalized = (normalize(camelizedJson, schema));
+      var normalized = Object.assign({}, normalize(camelizedJson, schema), { nextPageUrl });
+      console.log(normalized);
 
       return Object.assign({},
         normalize(camelizedJson, schema),
@@ -47,7 +48,6 @@ function callApi(endpoint, schema) {
 // JSON objects are replaced with their IDs. This is very convenient for
 // consumption by reducers, because we can easily build a normalized tree
 // and keep it updated as we fetch more data.
-
 
 const userSchema = new Schema('users', {
   idAttribute: 'login'
