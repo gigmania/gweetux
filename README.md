@@ -11,7 +11,7 @@ $ npm install
 ```
 
 ### Running gweetux locally
-* When the npm install process is complete, enter the following command in to run the app.
+* When the npm install process is complete, enter the following command in the terminal to run the app.
 
 ```
 $ npm start

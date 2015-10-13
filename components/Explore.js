@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import { resetErrorMessage } from '../actions';
 
 export default class Explore extends Component {
   constructor(props) {
@@ -18,12 +20,14 @@ export default class Explore extends Component {
     }
   }
 
-  handleGoClick() {
-    console.log('handling go click');
+  handleGoClick(e) {
+    this.props.resetErrorMessage();
+    e.preventDefault;
     this.props.onChange(this.getInputValue());
   }
 
   render() {
+    console.log(this);
     return (
       <div className="explore box-row">
         <div className="explore-head-name">
@@ -50,5 +54,15 @@ export default class Explore extends Component {
 
 Explore.propTypes = {
   value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
 };
+
+function mapStateToProps(state) {
+  return {
+    errorMessage: state.errorMessage
+  };
+}
+
+export default connect(mapStateToProps, {
+  resetErrorMessage
+})(Explore);

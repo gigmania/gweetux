@@ -21,20 +21,25 @@ class App extends Component {
   }
 
   renderErrorMessage() {
-    const { errorMessage } = this.props;
+    var errorMessage = this.props.errorMessage;
+    if (errorMessage === 'Not Found') {
+      const { inputValue } = this.props;
+      errorMessage = inputValue + ' is not found. Your query must be structured as "user/repo" (e.g. twitter/recess)';
+    }
     if (!errorMessage) {
       return null;
     }
-
     return (
-      <p style={{ backgroundColor: '#e99', padding: 10 }}>
-        <b>{errorMessage}</b>
-        {' '}
-        (<a href="#"
-            onClick={this.handleDismissClick}>
-          Dismiss
-        </a>)
-      </p>
+      <div className="error-msg box-row">
+        <p className="error-msg-msg">
+          <b>{errorMessage}</b>
+          {' '}
+          <sup> <a className="dismiss" href="#"
+              onClick={this.handleDismissClick}>
+            X
+          </a> </sup>
+        </p>
+      </div>
     );
   }
 

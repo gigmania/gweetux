@@ -114,6 +114,34 @@ body {
  		-webkit-justify-content: center;
  }
 
+ .error-msg {
+	 flex-basis: 90%;
+	 text-align: center;
+	 flex-wrap: wrap;
+		 -webkit-flex-wrap: wrap;
+	 justify-content: center;
+		-webkit-justify-content: center;
+ }
+
+ .error-msg-msg {
+	flex-basis: fit-content;
+	color: @site-gray-red;
+	font-family: @minor-text-font;
+	font-size: 16px;
+	@media only screen and (min-width : 768px) {
+		font-size: 18px;
+	 }
+ }
+
+ .dismiss {
+	 padding-left: 10px;
+	 font-size: 12px;
+	 text-decoration: none;
+	 font-weight: bold;
+	 font-family: @minor-text-font;
+	 color: @site-red;
+ }
+
 /*
  * EXPLORE COMPONENT
  */
@@ -383,9 +411,11 @@ body {
 	margin-top: 5px;
 	flex-basis: 96%;
 	order: 2;
-	height: 100px;
 	text-align: center;
 	font-size: 20px;
+	@media only screen and (min-width : 768px) {
+		height: 100px;
+	}
 	a {
 		text-decoration:none;
 		color: #4d4d4d;
@@ -396,7 +426,9 @@ body {
 .issue-list-body {
 	flex-basis: 96%;
 	order: 3;
-	height: 75px;
+	@media only screen and (min-width : 768px) {
+		height: 75px;
+	}
 	h4{
 		font-family: @text-font;
 	}
