@@ -18,3 +18,7 @@ $ npm start
 ```
 
 gweetux runs on port 3000.  Go to [http://localhost:3000](http://localhost:3000) to begin playing around with it.
+
+### Thanks to
+* Rackt for Redux [https://github.com/rackt/redux]
+* gaearon for Redux Thunk [https://github.com/gaearon/redux-thunk] and Normalizr [https://github.com/gaearon/normalizr]

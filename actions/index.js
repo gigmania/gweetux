@@ -20,7 +20,6 @@ export const COMMENTS_FAILURE = 'COMMENTS_FAILURE';
 // Fetches a single repository from Github API.
 // Relies on the custom API middleware defined in ../middleware/api.js.
 function fetchRepo(fullName) {
-  console.log('in the Fetch Repo');
   return {
     [CALL_API]: {
       types: [REPO_REQUEST, REPO_SUCCESS, REPO_FAILURE],
@@ -33,7 +32,6 @@ function fetchRepo(fullName) {
 // Fetches a single repository from Github API unless it is cached.
 // Relies on Redux Thunk middleware.
 export function loadRepo(fullName, requiredFields = []) {
-  console.log('in the load Repo');
   return (dispatch, getState) => {
     const repo = getState().entities.repos[fullName];
     if (repo && requiredFields.every(key => repo.hasOwnProperty(key))) {
@@ -54,8 +52,6 @@ function fetchIssue(number, fullName) {
 }
 
 export function loadIssue(number, fullName, requiredFields = []) {
-  console.log('in the load issue');
-  console.log(number);
   return (dispatch, getState) => {
     const issue = getState().entities.issues[number];
     if (issue && requiredFields.every(key => issue.hasOwnProperty(key))) {
