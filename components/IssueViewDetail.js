@@ -17,7 +17,6 @@ export default class IssueViewDetail extends Component {
   }
 
   render() {
-  	console.log(this);
   	const { title, state, body, number, labels, comments } = this.props.issue;
     return (
       <div className="issue-view-detail box-row">

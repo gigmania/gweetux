@@ -80,16 +80,12 @@ function mapStateToProps(state) {
 
   const commentsPagination = commentsByIssue[number] || { ids: [] };
   const remarks = commentsPagination.ids.map(id => comments[id]);
-
   const issue = issues[number];
   const { user } = issue;
-
   for (var key in repos) {
     var repo = repos[key];
   }
-
   var fullName = repo.fullName;
-  console.log(fullName);
 
   return {
     issue,

@@ -27,7 +27,6 @@ export default class Explore extends Component {
   }
 
   render() {
-    console.log(this);
     return (
       <div className="explore box-row">
         <div className="explore-head-name">

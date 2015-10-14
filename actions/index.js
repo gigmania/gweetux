@@ -107,9 +107,6 @@ export function loadComments(number, fullName) {
       nextPageUrl = `repos/${fullName}/issues/${number}/comments`,
       pageCount = 0
     } = getState().pagination.commentsByIssue[number] || {};
-    if (pageCount > 0 && !nextPage) {
-      return null;
-    }
     return dispatch(fetchComments(number, nextPageUrl));
   };
 }

@@ -34,8 +34,7 @@ export function callApi(endpoint, schema) {
       const nextPageUrl = getNextPageUrl(response) || undefined;
 
       var normalized = Object.assign({}, normalize(camelizedJson, schema), { nextPageUrl });
-      console.log(normalized);
-
+      
       return Object.assign({},
         normalize(camelizedJson, schema),
         { nextPageUrl }
