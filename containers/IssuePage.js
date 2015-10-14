@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { loadIssue, loadComments } from '../actions';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import Issue from '../components/Issue';
 import IssueViewDetail from '../components/IssueViewDetail';
@@ -44,16 +45,18 @@ class IssuePage extends Component {
   render() {
     const { issue, user, comments, remarks, fullName } = this.props;
     return (
-      <div className="issue-view box-row">
-        <div className="issue-view-inside box-row">
-          <IssueViewDetail issue={issue} fullName={fullName} />
-          <BigReporter user={user} />
+      <ReactCSSTransitionGroup className="issue-view-trans-group box-row" transitionName="issue" transitionAppear={true} transitionAppearTimeout={750} transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+        <div className="issue-view box-row">
+          <div className="issue-view-inside box-row">
+            <IssueViewDetail issue={issue} fullName={fullName} />
+            <BigReporter user={user} />
+          </div>
+          <div className="comments-view box-row-rev">
+            <List renderItem={this.renderComment}
+                  items={remarks} />
+          </div>
         </div>
-        <div className="comments-view box-row-rev">
-          <List renderItem={this.renderComment}
-                items={remarks} />
-        </div>
-      </div>
+      </ReactCSSTransitionGroup>
     );
   }
 }

@@ -6,7 +6,6 @@ import { Link } from 'react-router';
 export default class Comment extends Component {
 
   render() {
-    console.log(this);
     const { body, user } = this.props.comment;
     return (
       <div className="comment-module box-row">

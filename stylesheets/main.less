@@ -79,6 +79,42 @@
 		 word-break: break-word;
 }
 
+.issues-appear {
+  opacity: 0.01;
+}
+
+.issues-appear.issues-appear-active {
+  opacity: 1;
+  transition: opacity 750ms ease-in;
+}
+
+.issue-appear {
+  opacity: 0.01;
+}
+
+.issue-appear.issue-appear-active {
+  opacity: 1;
+  transition: opacity 750ms ease-in;
+}
+
+.issues-enter {
+  opacity: 0.01;
+}
+
+.issues-enter.issues-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.issues-leave {
+  opacity: 1;
+}
+
+.issues-leave.issues-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
 /*
  * DOCUMENT
  */
@@ -377,26 +413,35 @@ body {
 * ISSUE LIST CONTAINER & COMPONENTS
 */
 
-.issue-list-module {
+.issue-list-trans-group {
 	flex-basis: 96%;
 	order: 1;
-	background: #f9f9f9;
-	margin-bottom: 30px;
-	-moz-border-radius:100px / 20px;
-			 border-radius:100px / 20px;
 	flex-wrap: wrap;
 		-webkit-flex-wrap: wrap;
 	-webkit-justify-content: space-around;
 					justify-content: space-around;
-	-webkit-box-shadow:0 1px 4px @site-red, 0 0 10px @site-blue;
-     -moz-box-shadow:0 1px 4px @site-red, 0 0 10px @site-blue;
-          box-shadow:0 1px 4px @site-red, 0 0 10px @site-blue;
 	@media only screen and (min-width : 768px) {
 		flex-basis: 48%;
 	}
 	@media only screen and (min-width : 992px) {
 		flex-basis: 31%;
 	}
+}
+
+.issue-list-module {
+	flex-basis: 100%;
+	order: 1;
+	background: #f9f9f9;
+	margin-bottom: 30px;
+	flex-wrap: wrap;
+		-webkit-flex-wrap: wrap;
+	-webkit-justify-content: space-around;
+					justify-content: space-around;
+	-moz-border-radius:100px / 20px;
+			 border-radius:100px / 20px;
+	-webkit-box-shadow:0 1px 4px @site-red, 0 0 10px @site-blue;
+     -moz-box-shadow:0 1px 4px @site-red, 0 0 10px @site-blue;
+          box-shadow:0 1px 4px @site-red, 0 0 10px @site-blue;
 }
 .issue-list-info {
 	flex-basis: 90%;
@@ -511,14 +556,24 @@ body {
 .reporter-name {
 	flex-basis: fill;
 	order: 2;
-	.reporter-name-name {
+	.reporter-url {
+		text-decoration: none;
+		color: #4d4d4d;
 		font-family: @user-font;
 	}
 }
 /*
 * ISSUE VIEW CONTAINER & COMPONENTS
 */
+
+.issue-view-trans-group {
+	flex-wrap: wrap;
+		-webkit-flex-wrap: wrap;
+	justify-content: space-around;
+		-webkit-justify-content:space-around;
+}
 .issue-view {
+	flex-basis: 100%;
 	flex-wrap: wrap;
 		-webkit-flex-wrap: wrap;
 	justify-content: space-around;
