@@ -10,7 +10,7 @@ export default class Comment extends Component {
     return (
       <div className="comment-module box-row">
         <div className="comment-module-primary box-row">
-          <div className="comment-body">
+          <div className="comment-body text-contain">
             {body}
           </div>
           <div className="comment-user-avatar">

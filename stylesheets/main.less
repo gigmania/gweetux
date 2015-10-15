@@ -79,41 +79,6 @@
 		 word-break: break-word;
 }
 
-.issues-appear {
-  opacity: 0.01;
-}
-
-.issues-appear.issues-appear-active {
-  opacity: 1;
-  transition: opacity 750ms ease-in;
-}
-
-.issue-appear {
-  opacity: 0.01;
-}
-
-.issue-appear.issue-appear-active {
-  opacity: 1;
-  transition: opacity 750ms ease-in;
-}
-
-.issues-enter {
-  opacity: 0.01;
-}
-
-.issues-enter.issues-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.issues-leave {
-  opacity: 1;
-}
-
-.issues-leave.issues-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-}
 
 /*
  * DOCUMENT
@@ -130,14 +95,6 @@ body {
 			-moz-font-smoothing: antialiased;
 
 }
-
-/*
- * SITE-ROOT
- */
-
-// #root {
-// 	display: flex !important;
-// }
 
 /*
  * APP CONTAINER
@@ -712,6 +669,7 @@ body {
 */
 
 .comments-view {
+	flex-basis: 90%;
 	justify-content: start;
 		-webkit-justify-content: start;
 }
@@ -795,4 +753,44 @@ body {
 	font-family: @user-font;
 	font-size: 18px;
 	cursor: pointer;
+}
+
+/*
+ * REACT TRANSITIONS
+ */
+
+.issues-appear {
+  opacity: 0.01;
+}
+
+.issues-appear.issues-appear-active {
+  opacity: 1;
+  transition: opacity 750ms ease-in;
+}
+
+.issue-appear {
+  opacity: 0.01;
+}
+
+.issue-appear.issue-appear-active {
+  opacity: 1;
+  transition: opacity 750ms ease-in;
+}
+
+.issues-enter {
+  opacity: 0.01;
+}
+
+.issues-enter.issues-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.issues-leave {
+  opacity: 1;
+}
+
+.issues-leave.issues-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }
