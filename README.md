@@ -16,8 +16,14 @@ $ npm install
 ```
 $ npm start
 ```
-
 gweetux runs on port 3000.  Go to [http://localhost:3000](http://localhost:3000) to begin playing around with it.
+
+### Running gweetux tests
+* gweetux tests are currently limited, but to run them simply enter the following command in the terminal.
+
+```
+$ npm test
+```
 
 ### Thanks to
 * Rackt for Redux [https://github.com/rackt/redux]
