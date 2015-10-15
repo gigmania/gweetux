@@ -16,7 +16,7 @@ export default class Explore extends Component {
 
   handleKeyUp(e) {
     if (e.keyCode === 13) {
-      this.handleGoClick();
+      this.handleGoClick(e);
     }
   }
 
