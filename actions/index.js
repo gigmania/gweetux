@@ -130,7 +130,7 @@ function fetchGazers(fullName, nextPageUrl) {
 export function loadGazers(fullName) {
   return (dispatch, getState) => {
     const {
-      nextPageUrl = `repos/${fullName}/stargazers`,
+      nextPageUrl = `repos/${fullName}/stargazers?per_page=100`,
       pageCount = 0
     } = getState().pagination.gazersByRepo[fullName] || {};
     return dispatch(fetchGazers(fullName, nextPageUrl));

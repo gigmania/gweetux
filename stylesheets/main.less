@@ -334,11 +334,18 @@ body {
 			.repo-detail {
 				cursor: pointer;
 				margin-right: 10px;
-				&:hover {
-					color: red;
-				}
 				.count {
 					font-weight: bold;
+				}
+				a {
+					text-decoration:none;
+					color: #4d4d4d;
+					&:hover {
+						color: @site-gray-red;
+					}
+				}
+				&:hover {
+					color: @site-gray-red;
 				}
 			}
 		}
@@ -356,6 +363,99 @@ body {
 		height: 100px;
  }
 }
+
+/*
+ * GAZER CONTAINER
+ */
+
+ .gazer-page {
+	width: 100%;
+	.wrap-wrap();
+	justify-content: space-around;
+		-webkit-justify-content: space-around;
+ }
+
+ /*
+ * GAZER LIST CONTAINER & COMPONENTS
+ */
+
+ .gazer-list-trans-group {
+ 	flex-basis: 33%;
+ 	order: 1;
+ 	flex-wrap: wrap;
+ 		-webkit-flex-wrap: wrap;
+ 	-webkit-justify-content: space-around;
+ 					justify-content: space-around;
+ 	@media only screen and (min-width : 992px) {
+ 		flex-basis: 25%;
+ 	}
+ }
+
+ .gazer-list-module {
+ 	flex-basis: content;
+ 	order: 1;
+ 	background: #f9f9f9;
+ 	margin-bottom: 30px;
+ 	flex-wrap: wrap;
+ 		-webkit-flex-wrap: wrap;
+ 	-webkit-justify-content: space-around;
+ 					justify-content: space-around;
+ }
+
+ .gazer-img {
+ 	flex-basis: content;
+ 	order: 1;
+ 	img {
+		width: 90px;
+		height: 90px;
+ 		border-top-left-radius: 150px 75px;
+    border-bottom-right-radius: 150px 75px;
+		-webkit-box-shadow:3px 9px 18px @site-blue, 9px 9px 6px @site-gray-blue;
+			 -moz-box-shadow:3px 9px 18px @site-blue, 9px 9px 6px @site-gray-blue;
+						box-shadow:3px 9px 18px @site-blue, 9px 9px 6px @site-gray-blue;
+		@media only screen and (min-width : 480px) {
+			width: 90px;
+			height: 90px;
+			-webkit-box-shadow:3px 9px 18px @site-blue, 18px 9px 6px @site-gray-blue;
+	 	     -moz-box-shadow:3px 9px 18px @site-blue, 18px 9px 6px @site-gray-blue;
+	 	          box-shadow:3px 9px 18px @site-blue, 18px 9px 6px @site-gray-blue;
+		}
+		@media only screen and (min-width : 768px) {
+			width: 160px;
+			height: 160px;
+			-webkit-box-shadow:3px 9px 27px @site-blue, 27px 9px 6px @site-gray-blue;
+	 	     -moz-box-shadow:3px 9px 27px @site-blue, 27px 9px 6px @site-gray-blue;
+	 	          box-shadow:3px 9px 27px @site-blue, 27px 9px 6px @site-gray-blue;
+	 	}
+		@media only screen and (min-width : 992px) {
+			width: 160px;
+			height: 160px;
+	 	}
+		@media only screen and (min-width : 1200px) {
+			width: 200px;
+			height: 200px;
+	 	}
+		&:hover {
+			border-top-right-radius: 150px 75px;
+	    border-bottom-left-radius: 150px 75px;
+			border-top-left-radius: 0px 0px;
+	    border-bottom-right-radius: 0px 0px;
+			-webkit-box-shadow:9px 6px 3px @site-blue, 3px 6px 9px @site-gray-blue;
+				 -moz-box-shadow:9px 6px 3px @site-blue, 3px 6px 9px @site-gray-blue;
+							box-shadow:9px 6px 3px @site-blue, 3px 6px 9px @site-gray-blue;
+			@media only screen and (min-width : 480px) {
+				-webkit-box-shadow:9px 6px 3px @site-blue, 18px 9px 24px @site-gray-blue;
+					 -moz-box-shadow:9px 6px 3px @site-blue, 18px 9px 24px @site-gray-blue;
+								box-shadow:9px 6px 3px @site-blue, 18px 9px 24px @site-gray-blue;
+			}
+			@media only screen and (min-width : 768px) {
+				-webkit-box-shadow:15px 9px 3px @site-blue, 27px 9px 36px @site-gray-blue;
+		 	     -moz-box-shadow:15px 9px 3px @site-blue, 27px 9px 36px @site-gray-blue;
+		 	          box-shadow:15px 9px 3px @site-blue, 27px 9px 36px @site-gray-blue;
+			}
+		}
+ 	}
+ }
 
 
 /*

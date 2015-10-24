@@ -44,7 +44,7 @@ class GazerPage extends Component {
     const { repo, repoGazers, repoGazersPagination } = this.props;
     console.log(repoGazers);
     return (
-      <div className="repo-page container box-row">
+      <div className="gazer-page box-row">
         <Repo repo={repo} />
         <List renderItem={this.renderGazer}
               items={repoGazers}

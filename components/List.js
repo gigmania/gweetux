@@ -22,6 +22,22 @@ export default class List extends Component {
     );
   }
 
+  renderMoreGazers() {
+    const { isFetching, onLoadMoreClick } = this.props;
+    return (
+      <div className="load-more box-row">
+        <div className="see-more">
+          <h1     className="see-more-btn"
+                  style={{ fontSize: '150%' }}
+                  onClick={onLoadMoreClick}
+                  disabled={isFetching}>
+            {isFetching ? 'Loading more stargazers...' : 'see more stargazers'}
+          </h1>
+        </div>
+      </div>
+    );
+  }
+
   render() {
     const {
       isFetching,
@@ -53,6 +69,15 @@ export default class List extends Component {
                }, this)
              }
           {pageCount > 0 && !isLastPage && this.renderLoadMore()}
+        </div>
+      );
+    }
+
+    if (gazer === 'true') {
+      return (
+        <div className="list box-row">
+          {items.map(renderItem)}
+          {pageCount > 0 && !isLastPage && this.renderMoreGazers()}
         </div>
       );
     }
