@@ -79,6 +79,28 @@
 		 word-break: break-word;
 }
 
+/*
+ * FLEX BOX CLASSES
+ */
+.wrap-wrap {
+	flex-wrap: wrap;
+		-webkit-flex-wrap: wrap;
+}
+
+.justify-content-center {
+	justify-content: center;
+	 -webkit-justify-content: center;
+}
+
+.justify-content-start {
+	justify-content: start;
+	 -webkit-justify-content: start;
+}
+
+.justify-content-between {
+	justify-content: space-between;
+		-webkit-justify-content: space-between;
+}
 
 /*
  * DOCUMENT
@@ -99,21 +121,16 @@ body {
 /*
  * APP CONTAINER
  */
-
  .app {
-	 flex-wrap: wrap;
-		 -webkit-flex-wrap: wrap;
-	 justify-content: center;
- 		-webkit-justify-content: center;
+	 .wrap-wrap();
+	 .justify-content-center();
  }
 
  .error-msg {
 	 flex-basis: 90%;
 	 text-align: center;
-	 flex-wrap: wrap;
-		 -webkit-flex-wrap: wrap;
-	 justify-content: center;
-		-webkit-justify-content: center;
+	 .wrap-wrap();
+	 .justify-content-center();
  }
 
  .error-msg-msg {
@@ -240,8 +257,7 @@ body {
 
  .repo-page {
 	width: 100%;
-	flex-wrap: wrap;
-		-webkit-flex-wrap: wrap;
+	.wrap-wrap();
 	justify-content: space-around;
 		-webkit-justify-content: space-around;
  }
@@ -288,14 +304,14 @@ body {
 }
 
 .repo-sum-head {
-	flex-basis: max-content;
+	flex-basis: 100%;
 	order: 2;
 		.repo-name {
 			font-size: 24px;
 			font-family: @title-font;
 			@media only screen and (min-width : 768px) {
 				font-size: 32px;
-		 }
+		  }
 		}
 		.repo-desc {
 			font-style: italic;
@@ -303,7 +319,28 @@ body {
 			font-size: 13px;
 			@media only screen and (min-width : 768px) {
 				font-size: 18px;
-		 }
+		  }
+		}
+		.repo-details {
+			margin-top: 10px;
+			flex-basis: 100%;
+			font-size: 12px;
+			font-family: @minor-text-font;
+			.wrap-wrap();
+			.justify-content-start();
+			@media only screen and (min-width : 768px) {
+				font-size: 14px;
+		  }
+			.repo-detail {
+				cursor: pointer;
+				margin-right: 10px;
+				&:hover {
+					color: red;
+				}
+				.count {
+					font-weight: bold;
+				}
+			}
 		}
 }
 .repo-img {

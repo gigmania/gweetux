@@ -34,7 +34,7 @@ export function callApi(endpoint, schema) {
       const nextPageUrl = getNextPageUrl(response) || undefined;
 
       var normalized = Object.assign({}, normalize(camelizedJson, schema), { nextPageUrl });
-      
+
       return Object.assign({},
         normalize(camelizedJson, schema),
         { nextPageUrl }
@@ -43,7 +43,7 @@ export function callApi(endpoint, schema) {
 }
 
 // We use this Normalizr schemas to transform API responses from a nested form
-// to a flat form where repos and users are placed in `entities`, and nested
+// to a flat form where schema are placed in `entities`, and nested
 // JSON objects are replaced with their IDs. This is very convenient for
 // consumption by reducers, because we can easily build a normalized tree
 // and keep it updated as we fetch more data.
@@ -64,9 +64,12 @@ const commentSchema = new Schema('comments', {
   idAttribute: 'id'
 });
 
+const gazerSchema = new Schema('gazers', {
+  idAttribute: 'login'
+});
+
 repoSchema.define({
   owner: userSchema
-  // issues: arrayOf(issueSchema)
 });
 // Schemas for Github API responses.
 export const Schemas = {
@@ -78,6 +81,8 @@ export const Schemas = {
   ISSUE_ARRAY: arrayOf(issueSchema),
   COMMENT: commentSchema,
   COMMENT_ARRAY: arrayOf(commentSchema),
+  GAZER: gazerSchema,
+  GAZER_ARRAY: arrayOf(gazerSchema)
 };
 
 // Action key that carries API call info interpreted by this Redux middleware.

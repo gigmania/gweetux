@@ -16,6 +16,10 @@ export const COMMENTS_REQUEST = 'COMMENTS_REQUEST';
 export const COMMENTS_SUCCESS = 'COMMENTS_SUCCESS';
 export const COMMENTS_FAILURE = 'COMMENTS_FAILURE';
 
+export const GAZERS_REQUEST = 'GAZERS_REQUEST';
+export const GAZERS_SUCCESS = 'GAZERS_SUCCESS';
+export const GAZERS_FAILURE = 'GAZERS_FAILURE';
+
 
 // Fetches a single repository from Github API.
 // Relies on the custom API middleware defined in ../middleware/api.js.
@@ -108,6 +112,28 @@ export function loadComments(number, fullName) {
       pageCount = 0
     } = getState().pagination.commentsByIssue[number] || {};
     return dispatch(fetchComments(number, nextPageUrl));
+  };
+}
+
+function fetchGazers(fullName, nextPageUrl) {
+  console.log('in the fetchGazers');
+  return {
+    fullName,
+    [CALL_API]: {
+      types: [GAZERS_REQUEST, GAZERS_SUCCESS, GAZERS_FAILURE],
+      endpoint: nextPageUrl,
+      schema: Schemas.GAZER_ARRAY
+    }
+  };
+}
+
+export function loadGazers(fullName) {
+  return (dispatch, getState) => {
+    const {
+      nextPageUrl = `repos/${fullName}/stargazers`,
+      pageCount = 0
+    } = getState().pagination.gazersByRepo[fullName] || {};
+    return dispatch(fetchGazers(fullName, nextPageUrl));
   };
 }
 

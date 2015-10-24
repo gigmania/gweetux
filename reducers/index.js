@@ -5,7 +5,7 @@ import { routerStateReducer as router } from 'redux-router';
 import { combineReducers } from 'redux';
 
 // Updates an entity cache in response to any action with response.entities.
-function entities(state = { users: {}, repos: {}, issues: {}, comments: {} }, action) {
+function entities(state = { users: {}, repos: {}, issues: {}, comments: {}, gazers: {} }, action) {
   if (action.response && action.response.entities) {
     return merge({}, state, action.response.entities);
   }
@@ -39,6 +39,14 @@ const pagination = combineReducers({
       ActionTypes.COMMENTS_REQUEST,
       ActionTypes.COMMENTS_SUCCESS,
       ActionTypes.COMMENTS_FAILURE
+    ]
+  }),
+  gazersByRepo: paginate({
+    mapActionToKey: action => action.fullName,
+    types: [
+      ActionTypes.GAZERS_REQUEST,
+      ActionTypes.GAZERS_SUCCESS,
+      ActionTypes.GAZERS_FAILURE
     ]
   })
 });
