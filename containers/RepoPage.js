@@ -41,11 +41,10 @@ class RepoPage extends Component {
   }
 
   render() {
-    const { repo, name, fullName } = this.props;
+    const { repo, name, fullName, repoIssues, repoIssuesPagination } = this.props;
     if (!repo) {
       return <h1><i>Loading {name} issues...</i></h1>;
     }
-    const { repoIssues, repoIssuesPagination } = this.props;
     return (
       <div className="repo-page container box-row">
         <Repo repo={repo} />

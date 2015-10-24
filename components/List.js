@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
 import Issue from './Issue';
+import Gazer from './Gazer';
 
 export default class List extends Component {
 
@@ -29,15 +30,18 @@ export default class List extends Component {
       items,
       renderItem,
       loadingLabel,
-      fullName } = this.props;
+      fullName,
+      gazer } = this.props;
+      console.log(this.props);
 
     const isEmpty = items.length === 0;
     if (isEmpty && isFetching) {
       return <h2><i>{loadingLabel}</i></h2>;
     }
     const isLastPage = !nextPageUrl;
+    console.log(items);
 
-    if (fullName) {
+    if (fullName && gazer !== 'true') {
       return (
         <div className="list box-row">
           { this.props.items.map(function(item, i) {

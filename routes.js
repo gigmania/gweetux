@@ -9,8 +9,8 @@ export default (
   <Route path="/" component={App}>
     <Route path="/:login/:name"
            component={RepoPage} />
-    <Route path="/:login/:name/issue/:number"
-           component={IssuePage} />
+         <Route path="/:login/:name/issue/:number"
+                component={IssuePage} />
     <Route path="/:login/:name/gazers"
            component={GazerPage} />
   </Route>
